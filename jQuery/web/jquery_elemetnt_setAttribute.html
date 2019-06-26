@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+        }
+    </style>
+</head>
+<body>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+</script>
+<h2 onclick="this.setAttribute('align','right')">오 정렬방식</h2>
+- Element.getAttribute(name) : 현재 정렬방식 출력
+
+- Element.setAttribute(name, value) : DOM에서 만듦.
+
+- Element.hasAttribute(name);
+
+- Element.removeAttribute(name);
+
+<!--DOM 방식에서 : right으로 정렬하고싶을때 setAttribute를 사용한다-->
+<!--onclick은 javascript문법이다.
+하지만 this.setAttribute('align','right')은 아님-->
+<h1 align="left" onclick="alert(this.align)">아하 정렬방식</h1>
+<!--현재 정렬방식을 출력해준다.-->
+<h1 align="left" onclick="alert(this.getAttribute('align'))">아하 정렬방식</h1>
+</body>
+</html>

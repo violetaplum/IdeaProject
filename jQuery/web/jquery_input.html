@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+    </style>
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="js/jquery.autocomplete.js" type="text/javascript"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script>
+
+        $(function()
+        {
+            var arr = ['babo','ondal','kongjoo','sinderella','choonhyang','leedoryung','바보','온달','공주','신데렐라',
+                '춘향','이도령','바다','온도','축구공','신발','향단이','도자기']
+           $('#lovelinename').autocomplete({source:arr})
+            //있는지 없는지 찾아내준다
+           /* $('#lovelinename').Autocompleter(arr,{matchContains:true})     //안됨   */
+            //matchContains가 없으면 첫글자가 일치해야 나온다
+        })
+
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            var languages = [
+                "ActionScript", "AppleScript", "Asp","BASIC", "C",
+                "C++", "Clojure", "COBOL", "ColdFusion", "Erlang",
+                "Fortran", "Groovy", "Haskell", "Java", "JavaScript",
+                "Lisp", "Perl", "PHP", "Python", "Ruby",
+                "Scala", "Scheme"
+            ];
+
+            $( "#my-language" ).autocomplete({
+                source: languages
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+<h2>
+
+러브라인 이름 : <input type="text" id="lovelinename"><br>
+
+    프로그래밍 언어: <input id='my-language' type='text'>
+
+</h2>
+</body>
+</html>

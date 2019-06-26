@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+        }
+        /*     img{
+                 margin:0 auto;
+                 width:50%;height:40%;
+             }*/
+        .fontSize1{font-size: 50px}
+    </style>
+</head>
+<body>
+<input type="text" id="name" value="평강공주님! 보세요">
+<div id="div1"></div>
+<div id="div2">
+    <ul>
+        <li id="li3">바보</li>
+        <li id="li4">온달</li>
+        <ul>
+            <li id="li5">멋지다</li>
+        </ul>
+    </ul>
+</div>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function()
+{
+    alert($('#name').val())
+    $('#name').val('소개합니다')
+    //'평강공주님 보세요'alert이 뜨고 확인 누르면 value가 '소개합니다'로 바뀜
+    //.text() 태그 안에 들어가있는 text값
+    //.html() 태그를 포함한 범위
+    //.val() value반환
+    $('#div2').append('<h2>Hello everyone</h2>')
+    //확인을 누르고 난 뒤 Hello everyone이 div자리 하단에 뜨게 됨.
+    $('#div1').html('<h3>hello</h3>')// : html값을 아예 바꿀 수 있어 태그 포함해도 됨
+    //$('#div1').text('hello') : 태그 포함할 수 없다. 단지 text값만 들어감
+
+})
+</script>
+
+</body>
+</html>

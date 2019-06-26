@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+    </style>
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function()
+        {
+            var w=180
+            var h=120
+            setInterval(function()
+            {
+                $('img').attr('width',w).attr('height',h)
+                w++
+                h++
+            },10)
+            //값의 증가를 하는 방법
+
+            /*setInterval(function()
+            {
+                $('img').animate(
+                    {width:"+=30"},3000
+                ).animate(
+                    {height:"+=20"},2000
+                )
+            },100)*/    //animate를 사용하는 방법
+        })
+
+    </script>
+
+</head>
+<body>
+<h2>진격의거인입니다만?</h2>
+<img src="./image/kid.jpeg" id="kid1">
+</body>
+</html>

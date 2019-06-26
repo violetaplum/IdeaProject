@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+        }
+    </style>
+</head>
+<body>
+
+<h2>오늘의 메뉴</h2>
+<div class="hansik">
+    <p>한식코너</p>
+    <ol id="hansik" class="hansik">
+        <li>백반</li>
+        <li>순대국</li>
+        <li>오므라이스</li>
+    </ol>
+    <p>일양식코너</p>
+    <ul id="yangsik">
+        <li>돈까스</li>
+        <li>햄버거</li>
+        <li>새우까스</li>
+    </ul>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //li:eq()를 사용하되 새우까스의 바로직전행을 나오게 하고 새우까스의 맏형을 다 나오게 하고, 햄버거 형제를 다 나오게 하시오
+    alert($('#yangsik li:lt(2)').before().text())
+    alert($('#yangsik li:eq(0)').text()+$('#yangsik li:eq(0)').nextAll().text())
+
+
+    //.prev()
+    //.prevAll()
+    //.siblings()
+    //:first  - 첫번째로 일치하는 요소
+    //:last   - 마지막으로 일치하는 요소
+    //:even   - 짝수번째 요소를 모두 가져옴
+    //:odd    - 홀수번째 요소를 모두 가져옴
+    //:eq(index) - 인자로 전달된index에 해당하는 요소를 가져온다(first index:0)
+    //:gt(index) - 인자로 전달도니 index보다 큰 index를 가진 요소를 모두 가져온다
+    //:lt(index) - 인자로 전달된 index보다 작은 index를 가진 요소를 모두 가져온다
+    //:has(selector) - 인자로 전달된 selector요소를 하나 이상 포함하고 있는 요소를 가져온다
+    //:not(selctor) - 인자로 전달된 selector와 일치하지 않는 모든 요소를 가져온다.
+
+
+</script>
+</body>
+</html>

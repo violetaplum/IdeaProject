@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+    </style>
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function()
+        {       var arr = [1,2,3,4]
+            $.each(arr,function(i,e)
+            {
+                $('#mtag'+e).mouseenter(function()
+                {
+                    //if($('#stag'+e).is(':hidden')) //숨겨져있으면 숨기고
+                    //{
+                        $('#stag'+e).show()
+                    //}
+                    /*else //아니면 보여준다
+                    {
+                        $('#stag'+e).hide()
+                    }*/
+                }).mouseleave(function()
+                {
+                    $('#stag'+e).hide()
+                })
+                /*$('#mtag'+e).mouseleave(function()
+                {
+                    $('#stag'+e).hide()
+                })*/
+
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+<div id="mtag1"><h3>서점</h3></div>
+<div id="stag1" style="display: none">
+    <ul>
+        <li><a href="aa.html">종로서점</a></li>
+        <li><a href="bb.html">동대문서점</a></li>
+    </ul>
+</div>
+
+<div id="mtag2"><h3>식당</h3></div>
+<div id="stag2" style="display: none">
+    <ul>
+        <li><a href="cc.html">한식</a></li>
+        <li><a href="dd.html">양식</a></li>
+    </ul>
+</div>
+
+<div id="mtag3"><h3>의류</h3></div>
+<div id="stag3" style="display: none">
+    <ul>
+        <li><a href="cc.html">한복</a></li>
+        <li><a href="dd.html">양복</a></li>
+    </ul>
+</div>
+
+<div id="mtag4"><h3>신발</h3></div>
+<div id="stag4" style="display: none">
+    <ul>
+        <li><a href="ee.html">구두</a></li>
+        <li><a href="ff.html">운동화</a></li>
+    </ul>
+</div>
+</body>
+</html>

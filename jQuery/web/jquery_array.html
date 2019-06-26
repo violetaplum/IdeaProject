@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+        .style0{
+            background:greenyellow;
+        }
+        .style1{
+            background:purple;
+        }
+        .style2{
+            background:mediumpurple;
+        }
+        .style3
+        {
+            background:rebeccapurple;
+        }
+        .style4{background:indigo}
+        .style5{background:dodgerblue}
+        .style6{background: #171d8e}
+
+        table{background:mediumpurple;text-align: center;}
+    </style>
+</head>
+<body>
+<a href="https://annotations.tistory.com/59">Go to url</a>
+<a href="https://annotations.tistory.com/58">Go to url</a>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+   /* var aa = {noon:"커",bab:function(){ alert('많이먹음')},}
+    aa.noon aa.bab
+    var array = [1,2,3,{noon:'커',bab:'풀'}] -> 배열 안에는 모든 type이 들어간다*/
+   var url = [{key:'자전거',value:'https://stackoverflow.com/questions/1831152/how-to-stop-setinterval'},
+       {key:'레드써니',value:'http://www.daum.net'}] //객체 in 배열
+   var img = ['./image/coffee.jpeg','./image/fastfood.jpeg','./image/kid.jpeg']
+    $(function()
+    {
+
+            $.each(url,function(i,e){
+            var str = ""
+            str += '<a href="'+e.value+'">'+'<h2>'+e.key+'</h2></a>'+'</br>'
+
+            //document.body.innerHTML+=str
+                $('body').append(str)
+            }
+           )
+        setInterval(function()
+        {
+
+        },1000)
+
+
+        /*setInterval(function()
+        {
+            $.each(url,function(i,e)
+            var str = ""
+            str += '<a href="'+e.value()+'">'
+            $(body).innerHTML+=str
+        )
+
+        },5000)*/
+
+
+
+
+
+
+
+
+    })
+    //.prev()
+    //.prevAll()
+    //.siblings()
+    //:first  - 첫번째로 일치하는 요소
+    //:last   - 마지막으로 일치하는 요소
+    //:even   - 짝수번째 요소를 모두 가져옴
+    //:odd    - 홀수번째 요소를 모두 가져옴
+    //:eq(index) - 인자로 전달된index에 해당하는 요소를 가져온다(first index:0)
+    //:gt(index) - 인자로 전달된 index보다 큰 index를 가진 요소를 모두 가져온다
+    //:lt(index) - 인자로 전달된 index보다 작은 index를 가진 요소를 모두 가져온다
+    //:has(selector) - 인자로 전달된 selector요소를 하나 이상 포함하고 있는 요소를 가져온다
+    //:not(selctor) - 인자로 전달된 selector와 일치하지 않는 모든 요소를 가져온다.
+
+</script>
+
+</body>
+</html>

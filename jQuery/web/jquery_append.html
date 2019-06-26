@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2">
+    <ul>
+        <li id="li3">바보</li>
+        <li id="li4">온달</li>
+        <ul>
+            <li id="li5">멋지다</li>
+        </ul>
+    </ul>
+</div>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function()
+    {
+        $('#div1').html('<h2>안녕</h2>').css('color','orange')
+        $('#div1').append('<ul><li>글머리</li><ul>글머리</ul></ul>')
+        $('body').append('<h2>나도 동감이야</h2>').css('color','rebeccapurple')
+        //(   ).appendTo('Element') : 앞의 내용을 뒤에 붙이는것
+        //$('Element').append(     ) : 뒤의 내용을 앞의 element에 붙이는것
+    })
+</script>
+
+</body>
+</html>

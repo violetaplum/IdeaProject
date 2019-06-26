@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+
+
+        }
+        /*     img{
+                 margin:0 auto;
+                 width:50%;height:40%;
+             }*/
+        .fontSize1{font-size: 50px}
+    </style>
+</head>
+<body>
+
+<div id="div1" onclick="mut()">How do I look?</div>
+<div id="div2" onclick="ebbo()">
+    <span onclick="ssa();event.stopPropagation()">How do I look~~??</span>
+    <!--이중으로 싸여져있기 때문에 alert()둘다 실행된다-->
+    <!--cancel bubble을 하려면 수행위치에서 막아버리면 된다
+        ssa();event.cancelBubble=true로 해도 됨
+    -->
+</div>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function mut()
+    {
+        alert('cool!!')
+    }
+    function ssa()
+    {
+        alert('I love you')
+    }
+    function ebbo()
+    {
+        alert("you're so beautiful")
+    }
+
+
+
+    $(function()
+    {
+
+
+    })
+
+
+
+</script>
+<script>document.onclick=ebbo</script> <!-- 이부분때문에 모든경우 ebbo가 수행됨-->
+
+<!-- capture->target->bubble -->
+</body>
+</html>

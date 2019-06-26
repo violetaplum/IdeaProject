@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+    </style>
+</head>
+<body>
+<h2 id="h2">오늘의 메뉴</h2>
+<div class="hansik">
+    <p>한식코너</p>
+    <ol id="hansik" class="hansik">
+        <li>백반</li>
+        <li>순대국</li>
+        <li>오므라이스</li>
+    </ol>
+    <p>일양식코너</p>
+    <ul id="yangsik">
+        <li>돈까스</li>
+        <li>햄버거</li>
+        <li>새우까스</li>
+        <li>생선까스</li>
+    </ul>
+</div>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //setInterval(aa,1000)
+    //for( : )
+    //foreach()
+    $(function()
+    {
+        setInterval(function()
+        {
+            $('div').find('li').each(function(i,e){
+                $(this).css('color','orange').css({'font-size':'30px'})
+
+                //for문 한번 수행하고 밑으로 안내려감..?
+                /*$(this).change(function()
+                {
+                    $(this).css({'font-size':'30px'})
+                })*/
+            })
+            $('p').each(function(i,e)
+            {
+                $(this).css({'font-size':'50px'}).css('color','cyan')
+            })
+
+        },1000)
+        setInterval(function()
+        {
+            $('div').find('li').each(function(i,e){
+                $(this).css('color','cyan').css({'font-size':'30px'})
+
+            })
+            $('p').each(function(i,e)
+            {
+                $(this).css({'font-size':'50px'}).css('color','orange')
+            })
+
+        },2000)
+
+
+    })
+
+   /* $('div').find('li').each(function(i,e){
+        $(this).css('color','orange')
+    })*/
+   /*
+
+   each(function(index,content1)
+   {
+       처리문장
+   })
+   index : 0~하나씩 돌아다닌다
+   content : 각각의 태그들.. 이게 바로 this가 된다
+
+   */
+</script>
+
+</body>
+</html>

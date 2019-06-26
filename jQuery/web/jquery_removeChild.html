@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+
+
+        }
+        /*     img{
+                 margin:0 auto;
+                 width:50%;height:40%;
+             }*/
+        .fontSize1{font-size: 50px}
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+<div id="div2">
+    <ul>
+        <li id="li1">바보</li>
+        <li id="li2">온달</li>
+        <ul>
+            <li id="li3">바보온달</li>
+        </ul>
+    </ul>
+</div>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(function()
+    {
+        $('#div2').css({'font-size':'30px'})
+        $('#li1').mouseover(function()
+        {
+            $(this).css('color','orange')
+        })
+        $('#li1').click(function()
+        {
+            $(this).remove()
+        })
+
+        $('#li2').mouseenter(function()
+        {
+            $(this).css('color','purple')
+        })
+
+        $('#li2').mouseleave(function()
+        {
+            $(this).css('color','green')
+        })
+
+        $('#li3').mouseenter(function()
+        {
+            $(this).css({'color':'#171d8e'})
+        })
+
+        $('#li3').mouseleave(function()
+        {
+            $(this).css({'color':'deepskyblue'})
+        })
+
+    })
+
+
+
+</script>
+
+</body>
+</html>

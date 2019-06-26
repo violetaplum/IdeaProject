@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+    <script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        // Jquery 위치를 script src에 추가한다
+        //안될때 $ 표시를 jQuery로 바꾸고 document.ready()사용해본다..
+        // jQuery.noConflict();
+        // jQuery(document).ready(function(){
+        //
+        //     jQuery('h1').css('color','red');
+        // });
+
+      $(function(){
+        $('h1').css('color','orange')
+      })
+
+      $(document).ready(function()
+    {
+      $('h2').css('color','green');
+    })
+
+        /*
+        $ = document.getElementById()
+        //window.onload
+        //<body onload=     : '홈페이지를 열자마자'
+        */
+        /*
+            $(document).ready(function(){
+                $('*').css('color','pink');
+            });*/
+
+        // $(function(){$('*').css('color','pink')});
+
+    </script>
+
+
+    <style>
+
+        body
+        {
+            background: #c166a1;
+        }
+
+    </style>
+
+</head>
+<body>
+<h1 id=h2>어서와 jQuery는 처음이지</h1>
+<h2 id=hhh>맞지~~ jQuery는 처음이지~~</h2>
+<h3 id=hh>jQuery는 처음아니야</h3>
+
+<!--<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">-->
+
+
+</body>
+</html>

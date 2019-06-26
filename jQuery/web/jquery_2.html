@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+        }
+        /*     img{
+                 margin:0 auto;
+                 width:50%;height:40%;
+             }*/
+        .fontSize1{font-size: 50px}
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+<div id="div2">
+    <ul>
+        <li id="li1">바보</li>
+        <li id="li2">온달</li>
+        <ul>
+            <li id="li3">바보온달</li>
+        </ul>
+    </ul>
+</div>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /*div1 내용을 <h2>러브라인</h2>*/
+    //var div1 = document.getElementById('div1')
+    //div1.innerHTML='<h2>러브라인</h2>' //DOM형식
+    //div2 li3 id내용을 평강공주로 변경, color red
+    $(function()
+    {
+        $('#div2 #li1').text('평강공주').css('color','orange')
+        $('#div2 #li3').text('결혼해!').css('color','pink')
+        $('#div1').html('<h2>결혼합니까</h2>')
+        /*
+        addBack -> 버전3 ( : 진행했던것에서 되돌아가서 집어넣어라)
+        andSelf -> 1.1.4 ( : 이전요소와 현재요소를 선택집합하여 css를 적용함)
+*/
+    })
+
+
+
+
+</script>
+
+</body>
+</html>

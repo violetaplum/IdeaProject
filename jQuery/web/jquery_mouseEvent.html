@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+            flow:inline-block;
+        }
+
+    </style>
+</head>
+<body>
+
+<img id="img1" src="./image/fastfood.jpeg">
+<img id="img2" src="./image/coffee.jpeg">
+<img id="img3" src="./image/kid.jpeg">
+<p id="p1">안녕하십니까</p>
+<p id="p2">안녕하십니까</p>
+<p id="p3">안녕하십니까</p>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+ /*   $(function()
+    {
+
+        $('img').find('#img1').hover(function(){
+            $(this).attr('src','./image/ocean.jpeg')
+        }
+            )
+        $('img').find('#img2').hover(
+            function(){
+                $(this).attr('src','./image/ocean.jpeg')
+            }
+        )
+        $('img').find('#img3').hover(
+            function(){
+                $(this).attr('src','./image/ocean.jpeg')
+            }
+        )
+    })
+    */
+ $(function()
+ {
+     $('#p1').hover(function()
+     {$(this).css('color','orange').css({'font-size':'50px'})})
+     $('#p2').hover(function()
+     {$(this).css('color','pink').css({'font-size':'30px'})})
+         $('#p3').hover(function()
+         {$(this).css('color','purple').css({'font-size':'10px'})})
+
+ }
+ )
+
+
+
+
+
+</script>
+</body>
+</html>

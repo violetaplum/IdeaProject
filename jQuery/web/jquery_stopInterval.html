@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jquery setinterval stop after sometime</title>
+
+</head>
+<body>
+
+
+<button>Click to Start</button>
+<pre></pre>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("button").click(function(){
+
+
+            $(this).attr("disabled",true);
+            $("pre").append('Stop After 1min.<br/>');
+
+
+            var countTime = 0;
+            var storeTimeInterval = setInterval(function(){
+                ++countTime;
+                $("pre").append(countTime*5 + 'sec.<br/>');
+                if(countTime == 12){
+                    clearInterval(storeTimeInterval);
+                    $("pre").append('stop');
+                }
+            }, 1000);
+        });
+    });
+</script>
+
+
+</body>
+</html>

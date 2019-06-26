@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+    </style>
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     $(function()
+     {
+       $('#first').mouseenter(function()
+       {
+         $('#second').slideDown('slow')
+         $('#first').hide()
+       }).mouseleave(function(){})
+
+     $('#second').mouseenter(function(){}).mouseleave(function() {
+            $('#second').hide()
+            $('#first').show()
+              })
+     })
+      /*mouseenter,mouseleave를 함께 쓸 수 있다*/
+
+    </script>
+
+</head>
+<body>
+<div id="first">
+  <h2>가고싶은 여행지는</h2>
+  </div>
+  <div id="second">
+    <select id="sel">
+      <option value="덴마크">
+        덴마크
+        </option>
+        <option value="보라카이">
+          보라카이
+          </option>
+          <option value="스페인" selected>
+            스페인
+            </option>
+            <option value="스위스">
+              스위스
+              </option>
+    </select>
+    </div>
+    <!-- 가고싶은 여행지에 올려놓으면 두번째는 점점 사라지고 -->
+
+</body>
+</html>

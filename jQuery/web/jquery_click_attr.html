@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+        body {
+            background: #c166a1;
+        }
+
+        textArea {
+            background: #171d8e;
+            color: #7fecab;
+        }
+    </style>
+</head>
+<body>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(function()
+    {
+        $('h2:eq(0)').click(
+            function()
+        {
+            $(this).attr('align','right')
+        }
+                )
+    })
+
+
+    $(function(){
+        $('h2:eq(1)').click(function()
+        {
+            alert($(this).attr('align'))
+        })
+    })
+
+/*
+    click(function(){
+        alert($('h2:eq(1)').attr('align'))
+    })
+     ---> 쌤이 알려주신거
+    */
+
+</script>
+<h2 align="left">우리 홈페이지에 잘 왔구먼</h2>
+<h2 align="left">우리 홈페이지에 어서오세요</h2>
+</body>
+</html>
