@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>회원관리 </title>
+<script>
+
+var httpRequest = null;
+var g_url = "";
+
+
+function getXMLHttpRequest() {
+  if (window.ActiveXObject) {
+    
+    try {
+      return new ActiveXObject("MSXML2.XMLHTTP");
+    } catch (e) {
+      try {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e1) {
+        return null;
+      }
+    }
+  } else if (window.XMLHttpRequest) {
+   .
+    return new XMLHttpRequest;
+  }
+  
+  return null;
+}
+
+function kaja(url) {
+  var name    = document.form1.name.value;///////////
+  var age     = document.form1.age.value;////////////
+  g_url = url+"?name="+encodeURIComponent(name)+"&age="+age; 
+  httpRequest = getXMLHttpRequest();
+  httpRequest.onreadystatechange = callbackFunction;
+  httpRequest.open("GET", g_url, true);
+  httpRequest.send(null)
+}
+
+function callbackFunction() {
+  var cont1 = document.getElementById("cont1");
+  var url = document.getElementById("url");
+  var msg = "";
+  
+   switch (httpRequest.readyState) {
+   case 4:
+    
+        if (httpRequest.status == 200) {
+    
+          msg = httpRequest.responseText + "\n";
+          
+          
+        } else {
+          msg = "웹 서버에서 오류 발생\n"
+                + "오류 코드 : " + httpRequest.status + "\n"
+                + "오류 문자열 : " + httpRequest.statusText + "\n";
+        }
+        break;
+   }
+   cont1.value = cont1.value + msg;
+}
+
+function clear_onclick() {
+  var cont1 = document.getElementById("cont1");
+  cont1.value="";
+  document.form1.name.value="";
+  document.form1.age.value="";
+}
+</script>
+</head>
+<body>
+
+<h3>회원관리</h3>
+<hr>
+<form name=form1>
+<textarea rows="15" cols="80" id="cont1" name="cont1"></textarea>
+<br/>
+  이름 : <input type="text" name="name" size=10> <br/>
+  나이 : <input type="text" name="age"  size=3 maxlength="3"> <br/>
+  
+ <input type="button" value="가자 " onclick="kaja('server1.jsp')">
+<input type="button" value="초기화" onclick="clear_onclick()">
+</form>
+</body>
+</html>
+
+
+
+
+
+

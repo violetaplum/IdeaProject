@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+
+    <style>
+
+        body
+        {
+            background: #c166a1;
+        }
+        textArea
+        {
+            background:#171d8e;
+            color:#7fecab;
+        }
+    </style>
+</head>
+<body>
+
+<script src="js/jquery-3.4.1.js" type="text/javascript">
+
+    $(function(){$('h2').css('color','orange')});
+</script>
+<h2>오늘의 메뉴</h2>
+<div class="hansik">
+    <p>한식코너</p>
+    <ol id="hansik" class="hansik">
+        <li>백반</li>
+        <li>순대국</li>
+        <li>오므라이스</li>
+    </ol>
+    <p>일양식코너</p>
+    <ul id="yangsik">
+        <li>돈까스</li>
+        <li>햄버거</li>
+        <li>새우까스</li>
+    </ul>
+</div>
+<script src="js/jquery-3.4.1.js" type="text/javascript">
+
+    $(function(){$('h2').css('color','orange')});
+    //document.getElementById("hansik")....innerText
+    alert($("#hansik li:eq(2)").text());//오므라이스
+    //hansik id를 참조하여 <li>를 2호 요소의 문자열
+    alert($("ol li:eq(1)").text());
+    //ol요소의 하위요소인 li를 찾아 1호 요소의 문자열
+    alert($(".hansik li:eq(1)").text());
+    //hansik class를 참조하여 <li>를 1호 요소의 문자열
+    alert($("body ol li:eq(2)").text());
+    alert($("li").length);
+</script>
+</body>
+</html>

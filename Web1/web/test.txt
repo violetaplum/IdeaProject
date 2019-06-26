@@ -1,0 +1,23 @@
+create table mvcsnsboard
+(
+bunho number(5) constraints mvc_bunho_pk primary key,
+snsjemok varchar2(30),
+snswriter varchar2(30),
+sbscontent varchar2(200),
+basebun number(5),
+daetbun number(5),
+daetdaetbun number(5));
+
+create sequence mvcsnsboard_sequence1;
+
+daetbun : 댓글번호
+daetaetbun : 대댓글번호
+
+insert into MVCSNSBOARD
+values(mvcsnsboard_sequence1.NEXTVAL,'sns','aa','bb',mvcsnsboard_sequence1.CURRVAL,0,0);
+
+insert into MVCSNSBOARD
+values(mvcsnsboard_sequence1.NEXTVAL,'sns','cc','dd',mvcsnsboard_sequence1.CURRVAL,0,0);
+
+일련번호가 1부터 시작한다면 curr는 1이되고 nextval은 2가된다..
+sns제목/작성자/

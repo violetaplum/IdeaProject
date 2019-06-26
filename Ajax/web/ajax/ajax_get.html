@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="EUC-KR">
+    <title>Insert title here</title>
+    <style>
+
+        body
+        {
+            background: #c166a1;
+        }
+        textArea
+        {
+            background:#171d8e;
+            color:#7fecab;
+        }
+    </style>
+    <script>
+        //httpRequest 전역 변수 선언
+        var httpRequest = null;
+        var g_url = "";
+        //XMLHttpRequest 객체 얻는 변수
+        function getXMLHttpRequest(){
+            if(window.ActiveXObject){
+                //IE에서 XMLHttpRequest 객체 구하기
+                try{
+                    return new ActiveXObject("MSXML2.XMLHTTP");
+                }catch(e){
+                    try{
+                        return new ActiveXObject("Microsoft.XMLHTTP");
+                    }catch(e1){
+                        return null;
+                    }
+                }
+            }else if (window.XMLHttpRequest){
+                //IE를 제외한 Firefox, Opera와 같은 브라우저에서 XMLHttpRequest객체를 구한다
+                return new XMLHttpRequest;
+            }
+            null;
+        }//여기까지가 xhr 객체 구하기
+        function kaja(url){
+            var irum = document.getElementById("irum").value;
+            var na2 = document.getElementById("na2").value;
+            g_url = url + "?irum=" +irum + "&na2=" + na2;
+            httpRequest = getXMLHttpRequest();
+            httpRequest.onreadystatechange = callbackFunction;
+            httpRequest.open("GET",g_url,true);
+            httpRequest.send(null)
+
+        }
+        function callbackFunction(){
+            var cont = document.getElementById("cont1");
+            var url = document.getElementById("url");
+            var msg = "";
+            switch (httpRequest.readyState){ //현재 상태확인
+                case 4:
+                    if(httpRequest.status == 200){//결과전송 상태 확인
+                        msg = httpRequest.responseText + "\n";
+                        //서버에서 전송받은 결과 문자열 받는 속성
+                    }else {msg = "웹 서버에서 오류 발생\n"//에러인가?
+                        + "오류 코드" + httpRequest.status + "\n"
+                        + "오류 문자열:" + httpRequest.statusText + "\n"; }
+                    break; //에러결과 받고 끝냄
+            }
+            cont1.value=cont1.value+msg; // no에러건 에러건 받은 결과를 보여줌
+        }
+        function clear_onclick(){
+            var cont1 = document.getElementById("cont1");
+            cont1.value="";
+        }
+    </script>
+</head>
+<body>
+<H1>회원 관리</H1>
+<hr>
+<Textarea rows="15" cols="80" id="cont1" name="cont1"></Textarea>
+<br>
+
+이름 : <input type="text" name="irum" id="irum"><br>
+나이 : <input type="text" name="na2" id="na2"><br>
+<input type="button" value="회원입력확인" onclick="kaja('ajax_get2.jsp')">
+<input type="reset" value="초기화" onclick="clear_onclick()">
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <script>
+        var httpRequest = null;
+        var g_url = "";
+        function getXMLHttpRequest()
+        {
+            if(window.ActiveXObject)
+            {
+                try
+                {
+                    return new ActiveXObject("MSXML2.XMLHTTP");
+
+                }catch(e)
+                {
+                    try
+                    {
+                        return new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch(e1)
+                    {
+                        return null;
+                    }
+
+                }
+            }
+            else if(window.XMLHttpRequest)
+            {
+                return new XMLHttpReqeust;
+            }
+        }
+        function kaja(url)
+        {
+            g_url = url;
+            httpRequest = getXMLHttpRequest();
+            httpRequest.onreadystatechange = callbackFunction;
+            httpRequest.open("get",g_url,true);
+            httpRequest.send(null);
+        }
+
+
+
+        function callbackFunction()
+        {
+            var cont1 = document.getElementById("cont1").value;
+            var msg = "";
+            switch(httpRequest.readyState)
+            {
+                case 4 ://결과 도착함?
+                    if(httpRequest.readyState==200) //결과전송 ok이면 받아라
+                    {
+                        /*msg.value+="정상적으로 옴\n";*/
+                        msg =httpRequest.responseText+"\n";//서버에서 전송받은 결과 문자열받는 속성
+                    }
+                    else
+                    { //에러났을 경우 처리
+                        msg = "웹서버에서 오류 발생\n" + "오류코드 : " + httpRequest.status + "\n"
+                        + "오류 문자열 : "+httpRequest.statusText+"\n";
+                    }
+                    break; //에러결과 받고 끝내자
+            }
+            cont1.value = cont1.value+msg; //에러 있건없건 일단 cont1에 담아 보여줌
+        }
+
+        function clear_server()
+        {
+            var cont1 = document.getElementById("cont1");
+            cont1.value="";
+        }
+
+    </script>
+    <style>
+
+        body
+        {
+            background: #c166a1;
+
+        }
+        textArea
+        {
+            background:#171d8e;
+            color:#7fecab;
+        }
+    </style>
+</head>
+<body>
+<pre>
+  <h2>
+    소설텍뷰
+<textArea rows="20" cols="100" id="cont1" name="cont1"></textArea>
+
+<input type="button" value="소설텍뷰" onclick="kaja('./novel.txt')" />   <input type="button" value="Cancel" onclick="clear_server()" />
+      <!-- 중간에 xhr객체가 들어감에 주의한다 -->
+
+  </h2>
+  </pre>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Document</title>
+</head>
+<style>
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+@media all and (min-width:320px) {
+	#wrap {
+		display: inline-block;
+		width: 90%;
+		height: 50%;margin:0 auto;
+
+	}
+	#wrap img:nth-child(1) {
+
+		width: 100%;
+		height: 25%;
+	}
+	#wrap img:nth-child(2)  {
+
+		width: 100%;
+		height: 25%;
+	}
+	#wrap img:nth-child(3)  {
+
+		width: 100%;
+		height: 25%;
+	}
+	#wrap img:nth-child(4)  {
+
+		width: 100%;
+		height: 25%;
+	}
+}
+
+@media all and (min-width:768px) {
+		#wrap {
+		display: inline-block;
+			width: 90%;
+			height: 70%;
+
+		}
+		#wrap img:nth-child(1){
+
+			width: 50%;
+			height: 50%;
+		}
+		#wrap img:nth-child(2){
+
+
+			width: 50%;
+			height: 50%;
+		}
+		#wrap img:nth-child(3){
+
+
+			width: 50%;
+			height: 50%;
+		}
+		#wrap img:nth-child(4){
+
+
+			width: 50%;
+			height: 50%;
+		}
+		}
+
+@media all and (min-width:1024px) {
+			#wrap {
+				display: inline-block;
+				width: 90%;
+				height: 50%;
+
+			}
+			#wrap img:nth-child(1){
+
+
+				width: 25%;
+				height: 100%;
+			}
+			#wrap img:nth-child(2) {
+
+				width: 25%;
+				height: 100%;
+			}
+			#wrap img:nth-child(3){
+
+				width: 25%;
+				height: 100%;
+			}
+			#wrap img:nth-child(4){
+
+				width: 25%;
+				height: 100%;
+			}
+
+		}
+
+</style>
+
+<body>
+<div id="wrap"><img src="./image/n1.jpeg"><img src="./image/n2.jpeg"><img src="./image/n3.jpeg"><img src="./image/n4.jpeg"></div>
+이름 : <input type="text" name="name" />
+
+학점 : <input type="text" name="jum" />
+
+<input type="submit" value="Gogo" />  <input type="reset" value="Cancel" />
+</body>
+</html>

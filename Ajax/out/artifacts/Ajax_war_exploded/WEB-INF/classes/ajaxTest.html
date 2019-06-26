@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script>
+
+//javascript  -> JQuery, Ajax   --> jQueryAjax
+  var xhr1 = null  //xhr선언
+
+  function getXHR() //xhr함수(통신객체생성하기)
+  {
+    try{ //통신객체//cross browsing
+      if(window.XMLHttpRequest) //표준형 //ie11,ff,ch
+      {
+        return new XMLHttpRequest //비동기 xhr통신객체 생성
+      }
+      else if(window.ActiveXObject) //old IE?
+      {
+        return new ActiveXObject("MSXML2.XMLHTTP")
+      }
+      else
+      {
+        return new ActiveXObject("Microsoft.XMLHTTP")
+      }
+    }
+    catch(e)
+    {
+      xhr1=null
+    }
+  }
+
+function kaja(url)
+{
+  g_url = url;
+  xhr1 = getXHR();
+  xhr1.onreadystatechange = callback1;
+  xhr1.open("get",g_url,true);
+  xhr1.send(null);
+}
+
+  function serverGo() //server로 가는 함수
+  {
+    xhr1 = getXHR()//new XHR 객체 생성됨
+    xhr1.onreadystatechange = callback1 //메소드 모두 소문자임에 주의한다
+    //callback1 : 내려갔더라도 다시 check하고 다시 올라와보고 하는 것
+    //수시로 callback으로 보내서 결과를 확인하고있다
+
+    //xhr1.open("get","./test.txt",true) //true : 비동기, false : 동기                (원래것)
+    // xhr객체를 거쳐서 get방식으로 kaja.jsp로 보낸다
+
+    //xhr1.open("get","./ajaxParam.jsp?name=장희수",true)                            //(바꾼것)
+    //<input type="text" name="name" /> 에 JangHeeSoo를 입력하는 대신 위에걸로 바꾼다
+    //get방식은 url에 어떤 값이 들어가는지 다 보이므로 이렇게 바꿀 수 있다
+
+    xhr1.open("get","./ajaxParam.jsp?name="+encodeURIComponent("기영"),true)  //encodeURIComponent() : 한글사용시 사용
+    xhr1.send(null)//client에서 server로 보내는 문장
+    //목표지점은 kaja.jsp
+  }
+
+
+    // function callback1()
+    // {
+    //   var aa = document.getElementById("aa");
+    //   switch(xhr1.readyState)//아까의 onreadystatechange와 연관돼있음 //0번부터 4번까지의 결과를 계속 check해준다
+    //   {
+    //     case 0:
+    //       aa.value += "객체생성\n"; break;
+    //     case 1:
+    //       aa.value += "send메소드 사용전\n";beak;
+    //     case 2:
+    //       aa.value += "send메소드 호출\n";beak;
+    //     case 3:
+    //       aa.value += "아직 결과 다 안옴\n";beak;
+    //     case 4:
+    //       aa.value += "결과 다 왔다!!\n";beak;
+    //   }
+    //         //하지만 4번 이외에는 사용하지 않는것으로 한다. 실제 사용할때는 나머지는 확인할 필요 없기때문
+    // }
+    //xhr.readyState : 0~4의 값을 가진다
+    //실행해보면 저중에 몇가지만 나온다!
+    //너무 빨리 진행되기 때문..
+    //kaja.jsp가 있든없든 통신객체의 생성,동작만 확인하므로 server 안만들어도 출력된다
+
+
+
+    function callback1()
+    {
+      var aa = document.getElementById("aa");
+      switch(xhr1.readyState)
+      {//상태체크
+        case 4 : //값이 정상적으로 다녀 온것으로 치는 xhr.readyState값
+          aa.value+="결과 다 왔다고 전해라\n"
+          if(xhr1.status==200) //값이 정상으로 왔는지 확인해줌(200번은 정상)  //
+          {
+            aa.value+="정상으로 옴\n"
+            aa.value+=xhr1.responseText+"\n"  //xhr.responseText  가 있어야 결과를 받아올 수 있다
+            //그래서 정상적인 전달이 가능할때 text나 jsp, xml 을 가져옴
+          }else{
+            aa.value+="에러발생\n"
+            aa.value+=xhr1.status+"\t"+xhr1.StatusText+"\n" //이 부분에서 404가 출력된다
+          }
+          break
+      }
+    }
+
+
+
+  function clear_server()
+  {
+    var aa = document.getElementById("aa")
+    aa.value=""
+  }
+
+  </script>
+    <style>
+
+    body
+    {
+      background: #c166a1;
+
+    }
+    textArea
+    {
+      background:#171d8e;
+      color:#7fecab;
+    }
+    </style>
+
+  </head>
+<body>
+<pre>
+  <h2>
+    XHR 객체 Test!
+<textArea rows="20" cols="100" id="aa"></textArea>
+
+<input type="button" value="Go Server" onclick="serverGo()" />   <input type="button" value="Cancel" onclick="clear_server()" />
+<!-- 중간에 xhr객체가 들어감에 주의한다 -->
+
+  </h2>
+  </pre>
+  </body>
+</html>

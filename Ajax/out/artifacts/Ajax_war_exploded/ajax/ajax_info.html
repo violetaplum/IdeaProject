@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+
+        //javascript  -> JQuery, Ajax   --> jQueryAjax
+        var xhr1 = null  //xhr선언
+
+        function getXHR() //xhr함수(통신객체생성하기)
+        {
+            try{ //통신객체//cross browsing
+                if(window.XMLHttpRequest) //표준형 //ie11,ff,ch
+                {
+                    return new XMLHttpRequest //비동기 xhr통신객체 생성
+                }
+                else if(window.ActiveXObject) //old IE?
+                {
+                    return new ActiveXObject("MSXML2.XMLHTTP")
+                }
+                else
+                {
+                    return new ActiveXObject("Microsoft.XMLHTTP")
+                }
+            }
+            catch(e)
+            {
+                xhr1=null
+            }
+        }
+
+        function kaja()
+        {
+            var name = document.getElementById("name").value
+            var age = document.getElementById("age").value
+            var novel = document.getElementById("novel").value
+            var str = name+" "+age+" "+novel
+            xhr1 = getXHR()
+            xhr1.onreadystatechange = callback1
+            xhr1.open("post","./ajax_info.jsp",true) //POST에서 바뀌는 부분
+            xhr1.setRequestHeader("Content-Type","application/x-www-form-urlencoded") //POST
+            xhr1.send("str="+str) //POST
+
+            //xhr1.set("name=희수")  //라고 써도 됨
+        }
+     /*   function kaja(url)     만약 get방식이라면 이런식으로 구현하고 밑에 onclick 부분에서 kaja('ajax_info.jsp')로 바꾸면 됨
+        {
+            var name = document.form1.name.value;
+            var age = document.form1.age.value;
+            //g_url = url+"?name=hong&age=33" 을 모방한것
+            g_url = url+"?name="+encodeURIComponent(name)+"&age="+age;
+            httpRequest = getXMLHttpRequest();
+            httpRequest.onreadystatechange = callbackfunction;
+            httpRequest.open("get",g_url,true);
+            httpRequest.send(null);
+        }*/
+
+
+
+        function callback1()
+        {
+            var aa = document.getElementById("novel");
+            switch(xhr1.readyState)
+            {//상태체크
+                case 4 : //값이 정상적으로 다녀 온것으로 치는 xhr.readyState값
+                    aa.value+="결과 다 왔다고 전해라\n"
+                    if(xhr1.status==200) //값이 정상으로 왔는지 확인해줌(200번은 정상)  //
+                    {
+                        aa.value+="정상으로 옴\n"
+                        aa.value+=xhr1.responseText+"\n"  //xhr.responseText  가 있어야 결과를 받아올 수 있다
+                        //그래서 정상적인 전달이 가능할때 text나 jsp, xml 을 가져옴
+                    }else{
+                        aa.value+="에러발생\n"
+                        aa.value+=xhr1.status+"\t"+xhr1.StatusText+"\n" //이 부분에서 404가 출력된다
+                    }
+                    break
+            }
+        }
+
+
+
+        function clear_server()
+        {
+            var aa = document.getElementById("novel")
+            aa.value=""
+        }
+
+    </script>
+    <style>
+
+        body
+        {
+            background: #c166a1;
+        }
+        textArea
+        {
+            background:#171d8e;
+            color:#7fecab;
+        }
+    </style>
+
+</head>
+<body>
+<form action="ajax_info.jsp" method="post">
+<pre>
+  <h2>
+    회원관리
+      <hr>
+<textArea rows="20" cols="100" id="novel" name="novel"></textArea>
+이름 : <input type="text" name="name" id="name"> 나이 : <input type="number" name="age" id="age">
+<input type="button" value="입력" onclick="kaja()" />   <input type="button" value="초기화" onclick="clear_server()" />
+      <!-- 중간에 xhr객체가 들어감에 주의한다 -->
+
+  </h2>
+  </pre>
+</form>
+</body>
+</html>
+<!--
+//소설, 넘겨주는걸 받는곳이 있어야 한다.-->

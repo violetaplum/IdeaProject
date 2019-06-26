@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+            background: #c166a1;
+        }
+    </style>
+    <!--html은 입력전용
+    servlet 은 계산전용
+    jsp 출력전용-->
+</head>
+<body>
+<h2>회원입력</h2>
+<form action="./jspview/sawonView.jsp" method="post">
+    <input type="text" placeholder="이름입력" name="name"><br>
+    <input type="text" placeholder="전화번호 입력" name="tel"><br>
+    <input type="text" placeholder="나이입력" name="age"><br>
+    <input type="text" placeholder="주소입력" name="address"><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Cancel"><br>
+</form>
+</body>
+</html>

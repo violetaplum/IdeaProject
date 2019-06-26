@@ -1,0 +1,44 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Web3:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Web3_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Web3/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Web3" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="JAX-WS-Apache Axis" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/annotations-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/catalina-ant.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/catalina-ha.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/catalina-jmx-remote.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/catalina-storeconfig.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/catalina-tribes.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/catalina.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/commons-dbcp.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/commons-pool.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/cos.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/el-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/jasper-el.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/jasper.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/jaspic-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/jstl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/ojdbc6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/standard.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-coyote.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-dbcp.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-jdbc.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-jni.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-util-scan.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-util.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/tomcat-websocket.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/websocket-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/jsp-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../jars/servlet-api.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

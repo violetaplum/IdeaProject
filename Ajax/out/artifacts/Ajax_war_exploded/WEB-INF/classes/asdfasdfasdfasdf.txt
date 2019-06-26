@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+*{margin:0px;padding:0px;}
+#wrap
+{
+    display:inline-block;
+	margin:0 auto;
+}
+@media all and (min-width:320px)
+{
+body
+{
+  background:#dd3737;
+}
+#wrap image
+{
+ width:90%;height:200px;
+}
+
+}
+
+@media all and (min-width:760px)
+{
+
+body
+{
+background:#ff00ff;
+
+}
+#wrap image
+{
+ width:40%;height:200px;
+}
+}
+
+@media all and (min-width:960px)
+{
+
+body{
+background:#FF8C00;
+}
+#wrap image
+{
+ width:25%;height:200px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+
+<h1>학점계산</h1>
+<form method="post" action="Hakjum">
+
+  <!-- action을 통해jsp로 가는게 아니다!? -->
+  <!-- ======> servlet으로 가는것!!! -->
+  <!-- Hakjum -> javaresource에 있는 src 내부의 .java 이름임  -->
+ <div id="wrap">
+  <img src="./image/n1.jpeg" border="2px">
+   <img src="./image/n2.jpeg">
+    <img src="./image/n3.jpeg" >
+    <img src="./image/n4.jpeg">
+  </div>
+
+  이름 : <input type="text" name="name" />
+
+  학점 : <input type="text" name="jum" />
+
+  <input type="submit" value="Gogo" />  <input type="reset" value="Cancel" />
+</form>
+
+
+</body>
+</html>
+

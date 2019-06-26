@@ -1,0 +1,10 @@
+안녕하세요 여러분~~~
+
+
+create table TelTable5
+(
+id number(5),
+name varchar2(30),
+tel varchar2(30),
+d date
+);
